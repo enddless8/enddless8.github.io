@@ -5,12 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>e8.world</title>
 
-  <link rel="stylesheet" href="./static/css/main.css" />
-
   <link rel="apple-touch-icon" sizes="180x180" href="./static/favicon/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="./static/favicon/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="./static/favicon/favicon-16x16.png" />
   <link rel="manifest" href="./static/favicon/site.webmanifest" />
+
+  <style>
+    @font-face {
+      font-family: "Gilroy-Bold";  
+      src: url("./static/fonts/Gilroy-Bold.ttf") format("truetype"); 
+      font-style: normal; 
+      font-weight: normal;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background-color: #000000;
+    }
+
+    .e8 {
+      z-index: 2;
+      position: relative;
+    }
+
+    #e8 {
+      height: 23%;
+      position: relative; 
+    }
+
+    #infinity path {
+      fill: #424242;
+      stroke: #424242;
+    }
+
+    .e404 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 1;
+      opacity: 0;
+    }
+
+    #e404 {
+      color: #3b3b3b;
+      font-size: 250px;
+      font-family: "Gilroy-Bold";
+      text-align: center;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .soon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 3;
+      opacity: 0;
+    }
+
+    #soon {
+      color: #ffffff;
+      font-size: 70px;
+      font-family: "Gilroy-Bold";
+      text-align: center;
+      transition: opacity 2s ease-in-out;
+    }
+
+    @media screen and (min-width: 320px) {
+      #soon {
+        font-size: calc(45px + 6 * ((100vw - 320px) / 680));
+      }
+    }
+    @media screen and (min-width: 1000px) {
+      #soon {
+        font-size: 70px;
+      }
+    }
+
+    #e8, .e404, .soon {
+      opacity: 0;
+      animation: fadeIn 1.5s forwards;
+      transition: transform 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      to {
+          opacity: 1;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="e8">
@@ -29,26 +124,124 @@
         </g>
       </g>
     </svg>
-    <input type="text" id="textbox" autocomplete="off" placeholder="enddless8" value="enddless8" />
-    <div class="social-networks">
-      <a class="instagram" href="https://instagram.com/8enddless8">
-        <svg id="instagram-logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 169.063 169.063" xml:space="preserve">
-          <g>
-            <path d="M122.406,0H46.654C20.929,0,0,20.93,0,46.655v75.752c0,25.726,20.929,46.655,46.654,46.655h75.752   c25.727,0,46.656-20.93,46.656-46.655V46.655C169.063,20.93,148.133,0,122.406,0z M154.063,122.407   c0,17.455-14.201,31.655-31.656,31.655H46.654C29.2,154.063,15,139.862,15,122.407V46.655C15,29.201,29.2,15,46.654,15h75.752   c17.455,0,31.656,14.201,31.656,31.655V122.407z"/>
-            <path d="M84.531,40.97c-24.021,0-43.563,19.542-43.563,43.563c0,24.02,19.542,43.561,43.563,43.561s43.563-19.541,43.563-43.561   C128.094,60.512,108.552,40.97,84.531,40.97z M84.531,113.093c-15.749,0-28.563-12.812-28.563-28.561   c0-15.75,12.813-28.563,28.563-28.563s28.563,12.813,28.563,28.563C113.094,100.281,100.28,113.093,84.531,113.093z"/>
-            <path d="M129.921,28.251c-2.89,0-5.729,1.17-7.77,3.22c-2.051,2.04-3.23,4.88-3.23,7.78c0,2.891,1.18,5.73,3.23,7.78   c2.04,2.04,4.88,3.22,7.77,3.22c2.9,0,5.73-1.18,7.78-3.22c2.05-2.05,3.22-4.89,3.22-7.78c0-2.9-1.17-5.74-3.22-7.78   C135.661,29.421,132.821,28.251,129.921,28.251z"/>
-          </g>
-        </svg></a>
-      <a class="telegram" href="https://t.me/enddless8">
-        <svg id="telegram-logo" data-name="Social Media Icons" id="Social_Media_Icons" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-          <path class="cls-1" d="M477,43.86,13.32,223.29a5.86,5.86,0,0,0-.8.38c-3.76,2.13-30,18.18,7,32.57l.38.14,110.41,35.67a6.08,6.08,0,0,0,5.09-.62L409.25,120.57a6,6,0,0,1,2.2-.83c3.81-.63,14.78-1.81,7.84,7-7.85,10-194.9,177.62-215.66,196.21a6.3,6.3,0,0,0-2.07,4.17l-9.06,108a7.08,7.08,0,0,0,2.83,5.67,6.88,6.88,0,0,0,8.17-.62l65.6-58.63a6.09,6.09,0,0,1,7.63-.39l114.45,83.1.37.25c2.77,1.71,32.69,19.12,41.33-19.76l79-375.65c.11-1.19,1.18-14.27-8.17-22-9.82-8.08-23.72-4-25.81-3.56A6,6,0,0,0,477,43.86Z" />
-        </svg>
-      </a>
-    </div>
   </div>
 
-  <script src="./static/js/main.js"></script>
+  <div class="e404">
+    <h1 id="e404">404</h1>
+  </div>
 
-  <!-- hello from moscow -->
+  <div class="soon">
+    <h1 id="soon">page not found</h1>
+  </div>
+
+  <script>
+    const section = document.querySelector(".e8");
+    const logo = document.querySelector("#e8");
+    const infinity1 = document.querySelector("#infinity1 path");
+    const infinity2 = document.querySelector("#infinity2 path");
+    const infinity3 = document.querySelector("#infinity3 path");
+    section.style.height = window.innerHeight + "px";
+    section.style.width = window.innerWidth + "px";
+
+    let randomColor1 = randomColor();
+    infinity1.style.fill = randomColor1;
+    infinity1.style.stroke = randomColor1;
+    infinity2.style.fill = randomColor1;
+    infinity2.style.stroke = randomColor1;
+    infinity3.style.fill = randomColor1;
+    infinity3.style.stroke = randomColor1;
+
+    let xPosition = 10;
+    let yPosition = 10;
+    let xSpeed = 2;
+    let ySpeed = 2;
+    function update() {
+      logo.style.left = xPosition + "px";
+      logo.style.top = yPosition + "px";
+    }
+
+    function randomColor() {
+      let color = "#";
+      color += Math.random().toString(16).slice(2, 8).toUpperCase();
+
+      return color;
+    }
+
+    setInterval(() => {
+      let randomColor1 = randomColor();
+      if (xPosition + logo.clientWidth >= window.innerWidth || xPosition <= 0) {
+        xSpeed = -xSpeed;
+        
+        infinity1.style.fill = randomColor1;
+        infinity1.style.stroke = randomColor1;
+        infinity2.style.fill = randomColor1;
+        infinity2.style.stroke = randomColor1;
+        infinity3.style.fill = randomColor1;
+        infinity3.style.stroke = randomColor1;
+      }
+      if (yPosition + logo.clientHeight >= window.innerHeight || yPosition <= 0) {
+        ySpeed = -ySpeed;
+        
+        infinity1.style.fill = randomColor1;
+        infinity1.style.stroke = randomColor1;
+        infinity2.style.fill = randomColor1;
+        infinity2.style.stroke = randomColor1;
+        infinity3.style.fill = randomColor1;
+        infinity3.style.stroke = randomColor1;
+      }
+
+      xPosition += xSpeed;
+      yPosition += ySpeed;
+      update();
+    }, 1);
+
+    window.addEventListener("resize", () => {
+      xPosition = 10;
+      yPosition = 10;
+
+      section.style.height = window.innerHeight + "px";
+      section.style.width = window.innerWidth + "px";
+    });
+  </script>
+
+  <script>
+    const text = document.getElementById("soon");
+
+    let soon = [
+      'page not found',
+      'страница не найдена',
+      'page non trouvée',
+      'seite nicht gefunden',
+      'strona nie znaleziona',
+      'pagina niet gevonden',
+      'pagina non trovata',
+      'страница није пронађена',
+      'η σελίδα δεν βρέθηκε',
+      'stránka nenalezena',
+      'pagina nu a fost gasita',
+      'გვერდი არ მოიძებნა',
+      '페이지를 찾을 수 없습니다',
+      '找不到网页',
+      'ページが見つかりません',
+      'ไม่พบหน้านี้',
+      'הדף לא נמצא',
+    ]
+    
+    let counter = 0
+    setInterval(() => {
+      text.style.opacity = 0
+      setTimeout(() => {
+        counter++
+
+        if (counter === soon.length) {
+          counter = 0
+        }
+        
+        text.textContent = soon[counter]
+
+        text.style.opacity = 1
+      }, 2000)
+    }, 7000)
+  </script>
 </body>
 </html>
